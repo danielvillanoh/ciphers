@@ -1,5 +1,5 @@
-# author:
-# date:
+# author: Daniel Villano-Herrera
+# date: 7/29/2021
 
 # difficulty: easy
 
@@ -43,3 +43,42 @@
 #   2 - Remember that lists can be built up, meaning it may be useful to start with an empty list.
 #
 # WRITE DOWN THE STEPS BEFORE ATTEMPTING THE PROGRAM
+
+# Step 1: Write out the normal alphabet and the cipher alphabet.
+lower_normal_alphabet = 'abcdefghijklmnopqrstuvwxyz'
+lower_cipher_alphabet = lower_normal_alphabet[::-1]
+upper_normal_alphabet = lower_normal_alphabet.upper()
+upper_cipher_alphabet = lower_cipher_alphabet.upper()
+
+# Step 2: Get the word we're going to encrypt
+plain_text = input('Enter text: ')
+cipher_text = ''
+
+# Step 5
+for i in range(len(plain_text)):
+    # Step 3(a)
+    current_letter = plain_text[i]
+    # If the current letter is a space, then concatenate the cipher text with the space.
+    if current_letter == ' ':
+        cipher_text += ' '
+
+    # Else if the current letter is uppercase, then we do the steps 3 and 4 but only on uppercase.
+    elif current_letter.isupper():
+        position = upper_normal_alphabet.find(current_letter)
+
+        # Step 3(c)
+        cipher_letter = upper_cipher_alphabet[position]
+
+        # Step 4
+        cipher_text += cipher_letter
+    else:
+        # Step 3(b)
+        position = lower_normal_alphabet.find(current_letter)
+
+        # Step 3(c)
+        cipher_letter = lower_cipher_alphabet[position]
+
+        # Step 4
+        cipher_text += cipher_letter
+
+print(cipher_text)

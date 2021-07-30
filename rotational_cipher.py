@@ -1,5 +1,5 @@
-# author:
-# date:
+# author: Daniel Villano-Herrera
+# date: 7/30/2021
 
 # difficulty: medium
 
